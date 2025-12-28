@@ -1,9 +1,7 @@
 /* backend/Router.gs */
-
+// Placeholder for Phase 2 logic (not used in Ping Test)
 var Dispatcher = {
-  
   dispatch: function(action, data) {
-    // TODO: Switch case for actions
-    return { status: 'error', message: 'Action not implemented in scaffold' };
+    return {};
   }
 };
