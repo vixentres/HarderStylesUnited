@@ -1,37 +1,62 @@
 /* backend/Code.gs */
 
-function doGet(e) {
-  var output = {
-    status: 'online',
-    ping: 'ok',
-    timestamp: new Date().toISOString()
-  };
+/**
+ * Main Web App Entry Point - POST Requests
+ */
+function doPost(e) {
+  var output;
+  
+  try {
+    // 1. Validate Payload
+    if (!e || !e.postData || !e.postData.contents) {
+      throw new Error("Invalid Payload: No postData");
+    }
+    
+    var jsonString = e.postData.contents;
+    var payload;
+    try {
+      payload = JSON.parse(jsonString);
+    } catch (parseError) {
+      throw new Error("Invalid JSON Format");
+    }
+    
+    var action = payload.action;
+    var data = payload.data || {};
+    
+    // 2. Handle PING (Action 0)
+    // This is hardcoded to ensure availability check works even if Router fails.
+    if (action === 'PING') {
+      return ContentService.createTextOutput(JSON.stringify({
+        status: 'success',
+        ping: 'pong'
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // 3. Dispatch to Router
+    if (!action) throw new Error("Missing 'action' field");
+    
+    output = Dispatcher.dispatch(action, data);
+    
+  } catch (error) {
+    // Catch-all for uncaught errors
+    output = { 
+      status: 'error', 
+      message: error.toString()
+    };
+  }
+  
+  // 4. Return Final JSON
   return ContentService.createTextOutput(JSON.stringify(output))
     .setMimeType(ContentService.MimeType.JSON);
 }
 
-function doPost(e) {
-  try {
-    var jsonString = e.postData.contents;
-    var payload = JSON.parse(jsonString);
-    
-    // Simple Ping-Pong Test logic
-    if (payload.action === 'PING') {
-       return ContentService.createTextOutput(JSON.stringify({
-         status: 'success',
-         ping: 'pong'
-       })).setMimeType(ContentService.MimeType.JSON);
-    }
-    
-    return ContentService.createTextOutput(JSON.stringify({
-       status: 'ok',
-       received: payload
-    })).setMimeType(ContentService.MimeType.JSON);
-    
-  } catch (err) {
-    return ContentService.createTextOutput(JSON.stringify({
-      status: 'error',
-      message: err.toString()
-    })).setMimeType(ContentService.MimeType.JSON);
-  }
+/**
+ * Handle GET Requests - Serve info or simple query
+ */
+function doGet(e) {
+  return ContentService.createTextOutput(JSON.stringify({
+    status: 'online',
+    ping: 'ok',
+    timestamp: new Date().toISOString()
+  })).setMimeType(ContentService.MimeType.JSON);
 }

@@ -1,19 +1,12 @@
 /* backend/Controller_Orders.gs */
-
-var OrderController = {
-  
+var OrdersController = {
   getEventData: function(data) {
-    // TODO: Fetch CONFIG
-    return { event: {}, items: [] };
+    return Utils.buildSuccess({ status: "NOT_IMPLEMENTED_YET", step: "Orders.getEventData" });
   },
-  
   createOrder: function(data) {
-    // TODO: Insert REGISTRO_PADRE
-    return { order_id: 'REG-MOCK' };
+    return Utils.buildSuccess({ status: "NOT_IMPLEMENTED_YET", step: "Orders.createOrder" });
   },
-  
   reportPayment: function(data) {
-    // TODO: Update Item
-    return { modified: true };
+    return Utils.buildSuccess({ status: "NOT_IMPLEMENTED_YET", step: "Orders.reportPayment" });
   }
 };

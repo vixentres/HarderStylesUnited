@@ -1,14 +1,12 @@
 /* backend/Controller_Admin.gs */
-
 var AdminController = {
-  
   getDashboard: function(data) {
-     // TODO: Fetch Metrics
-     return { metrics: {}, pending: [] };
+    return Utils.buildSuccess({ status: "NOT_IMPLEMENTED_YET", step: "Admin.getDashboard" });
   },
-  
   approvePayment: function(data) {
-     // TODO: Logic for approval
-     return { new_status: 'PAGADO' };
+    return Utils.buildSuccess({ status: "NOT_IMPLEMENTED_YET", step: "Admin.approvePayment" });
+  },
+  deliverTicket: function(data) {
+    return Utils.buildSuccess({ status: "NOT_IMPLEMENTED_YET", step: "Admin.deliverTicket" });
   }
 };
