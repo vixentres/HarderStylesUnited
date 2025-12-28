@@ -1,8 +1,8 @@
 /* assets/js/api.js */
 
 // Configuration
-const API_URL = 'https://script.google.com/macros/s/DEPLOY_ID/exec'; // Replace with real URL later
-const MOCK_MODE = true; // Set to false when backend is ready
+const API_URL = 'https://script.google.com/macros/s/AKfycbwOM7DAxL-cyfNX-_1fvhO5ctm6_ev4OSN1kiZOTrKGf284X_keX4jE_EsqGnxkHubg/exec';
+const MOCK_MODE = false;
 
 export const api = {
     /**
