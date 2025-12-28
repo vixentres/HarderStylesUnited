@@ -1,0 +1,49 @@
+/* assets/css/tokens.css */
+:root {
+  /* Brand Colors - Stitch/Premium Feel */
+  --primary: #1A73E8;        /* Google Blue / Action */
+  --primary-dark: #1557B0;
+  --secondary: #E8F0FE;      /* Light Blue background */
+  --accent: #EA4335;         /* Alert / Urgent */
+  --success: #34A853;        /* Valid / Paid */
+  --surface: #FFFFFF;        /* Cards / Sheets */
+  --background: #F8F9FA;     /* App Background */
+  
+  /* Text Colors */
+  --text-main: #202124;      /* High emphasis */
+  --text-weaker: #5F6368;    /* Medium emphasis */
+  --text-disabled: #DADCE0;
+  
+  /* Spacing (8pt grid) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 64px;
+  
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-sm: 12px;
+  --font-size-base: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  
+  /* Effects */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 1px 2px rgba(60,64,67,0.3);
+  --shadow-md: 0 4px 6px rgba(60,64,67,0.15);
+  --shadow-float: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: #202124;
+    --background: #171717;
+    --text-main: #E8EAED;
+    --text-weaker: #9AA0A6;
+  }
+}

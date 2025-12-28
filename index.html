@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket App</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- SCREEN: LOGIN -->
+        <div id="screen-login" class="screen active">
+            <h1 class="text-h1 text-center" style="margin-top: 40px;">Bienvenido</h1>
+            <p class="text-body text-center" style="margin-bottom: 30px;">Inicia sesión para acceder a tus tickets.</p>
+
+            <div class="card">
+                <div class="input-group">
+                    <label class="text-caption">Correo Electrónico</label>
+                    <input type="email" id="login-email" class="input-field" placeholder="tu@email.com">
+                </div>
+                <button id="btn-login-action" class="btn btn-primary">Ingresar</button>
+            </div>
+
+            <div class="text-center mt-md">
+                <button class="btn btn-text btn-sm" onclick="app.nav('admin')">Acceso Admin</button>
+            </div>
+        </div>
+
+        <!-- SCREEN: HOME (CLIENTE) -->
+        <div id="screen-home" class="screen">
+            <!-- Event Banner / Info -->
+            <div class="card card-event">
+                <h2 class="text-h1" style="color: var(--primary-dark);">Evento 2025</h2>
+                <p class="text-body" style="color: var(--text-weaker);">El mejor evento del año.</p>
+                <h3 class="text-h2" style="margin-top: var(--space-md);">$15.000 <span class="text-caption">/
+                        entrada</span></h3>
+            </div>
+
+            <div class="flex justify-between items-center" style="margin-bottom: var(--space-sm);">
+                <h3 class="text-h2">Mis Tickets</h3>
+                <button class="btn btn-text btn-sm">Actualizar</button>
+            </div>
+
+            <!-- Ticket List Container -->
+            <div id="ticket-list">
+                <!-- Mock Item -->
+                <div class="card">
+                    <div class="flex justify-between">
+                        <span class="text-body"><strong>Orden #REG-001</strong></span>
+                        <span class="status-pill status-pending">Validando pago...</span>
+                    </div>
+                    <div class="mt-md flex justify-between items-center">
+                        <span class="text-caption">2 entradas</span>
+                        <button class="btn btn-secondary btn-sm" style="width: auto;">Ver Detalle</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAB for Buying -->
+            <button class="btn-float" onclick="app.nav('buy')">+</button>
+        </div>
+
+        <!-- SCREEN: ADMIN DASHBOARD -->
+        <div id="screen-admin" class="screen">
+            <div class="flex justify-between items-center" style="margin-bottom: var(--space-md);">
+                <h2 class="text-h2">Panel Admin</h2>
+                <span class="status-pill" style="background: #E8F0FE; color: var(--primary);">Admin</span>
+            </div>
+
+            <!-- Dashboard Metrics (Mock) -->
+            <div class="flex gap-sm" style="margin-bottom: var(--space-md);">
+                <div class="card" style="flex:1; margin:0; text-align: center;">
+                    <div class="text-h1">24</div>
+                    <div class="text-caption">Pendientes</div>
+                </div>
+                <div class="card" style="flex:1; margin:0; text-align: center;">
+                    <div class="text-h1">150</div>
+                    <div class="text-caption">Vendidos</div>
+                </div>
+            </div>
+
+            <h3 class="text-h2">Pendientes de Validación</h3>
+            <div id="admin-pending-list">
+                <!-- Mock Item -->
+                <div class="card">
+                    <div class="flex justify-between">
+                        <strong>Juan Pérez</strong>
+                        <span style="font-weight: 600;">$5.000</span>
+                    </div>
+                    <p class="text-caption">Abono reportado hace 10 min</p>
+                    <div class="flex gap-sm mt-md">
+                        <button class="btn btn-primary btn-sm"
+                            style="background-color: var(--success);">Aprobar</button>
+                        <button class="btn btn-primary btn-sm"
+                            style="background-color: var(--accent);">Rechazar</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-secondary mt-md" onclick="app.nav('login')">Cerrar Sesión</button>
+        </div>
+
+    </div>
+
+    <!-- MODULES -->
+    <script type="module" src="assets/js/app.js"></script>
+
+</body>
+
+</html>
